@@ -42,8 +42,11 @@ public class ViewListaImg extends Query
 		this.addCampi("seq", "TBLRELRIS", "RELRISSEQUENZA");
 		this.getCampo("seq").setOrderBy(1, Column.ORDERBY_CRES);
 		this.addCampi("relrisidr", "TBLRELRIS", "RELRISIDRARRIVO");
+		this.addCampi("RelRisIdrPartenza", "TBLRELRIS", "RELRISIDRPARTENZA");
 		this.addCampi("tipoRelId", "TBLRELRIS", "TIPORELID");
 		this.addCampi("imgPathName", "TBLIMG", "IMGPATHNAME");
+		this.addCampi("imgLength", "TBLIMG", "IMGLENGTH");
+		this.addCampi("imgWidth", "TBLIMG", "IMGWIDTH");
 	}
 
 	/**
