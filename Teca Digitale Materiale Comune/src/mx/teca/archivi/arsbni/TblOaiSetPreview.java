@@ -32,7 +32,7 @@ public class TblOaiSetPreview extends TableNavigator
 	 *  
 	 * @param conn
 	 */
-	public TblOaiSetPreview(ConnectionPool conn, Map map)
+	public TblOaiSetPreview(ConnectionPool conn, Map<Object, Object> map)
 	{
 		super(conn, map);
 	}

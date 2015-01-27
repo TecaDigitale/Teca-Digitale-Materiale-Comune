@@ -20,7 +20,7 @@ public class ViewTblRelRisUnion extends Query
 	 * @param conn
 	 * @param map
 	 */
-	public ViewTblRelRisUnion(ConnectionPool conn, Map map)
+	public ViewTblRelRisUnion(ConnectionPool conn, Map<Object, Object> map)
 	{
 		super(conn, map);
 	}

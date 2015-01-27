@@ -6,11 +6,12 @@ package mx.teca.archivi.arsbni;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
+import org.apache.log4j.Logger;
+
 import mx.database.ConnectionPool;
 import mx.database.MsSqlException;
 import mx.database.MsSqlPool;
 import mx.database.table.Table;
-import mx.log4j.Logger;
 
 /**
  * Questa classe viene utilizzata per gestire l'accesso alla tabella TblRelRis dell'archivio Teca
@@ -29,7 +30,7 @@ public class TblRelRis extends Table
 	/**
 	 * Questa variabile viene utilizzata per loggare l'applicativi
 	 */
-	private static Logger log = new Logger(TblRelRis.class, "teca.archivi.arsbni");
+	private static Logger log = Logger.getLogger(TblRelRis.class);
 
 	/**
 	 * @param conn

@@ -28,7 +28,7 @@ public class TlkpHost extends Table
    *          tabella (insert, update, delete)
    * @param map Lista parametri da caricare
    */
-  public TlkpHost(ConnectionPool conn, MsSqlPool msp, Map map)
+  public TlkpHost(ConnectionPool conn, MsSqlPool msp, Map<Object, Object> map)
   {
     super(conn, msp, map);
   }
@@ -38,7 +38,7 @@ public class TlkpHost extends Table
    * @param conn Pool di connessioni con il Database
    * @param map Lista parametri da caricare
    */
-  public TlkpHost(ConnectionPool conn, Map map)
+  public TlkpHost(ConnectionPool conn, Map<Object, Object> map)
   {
     super(conn, map);
   }

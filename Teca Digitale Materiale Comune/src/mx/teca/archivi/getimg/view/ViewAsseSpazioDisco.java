@@ -41,7 +41,7 @@ public class ViewAsseSpazioDisco extends QueryNavigator
    * @param conn Pool di connessioni con il Database
    * @param map Lista parametri da caricare
    */
-  public ViewAsseSpazioDisco(ConnectionPool conn, Map map)
+  public ViewAsseSpazioDisco(ConnectionPool conn, Map<Object, Object> map)
   {
     super(conn, map);
   }

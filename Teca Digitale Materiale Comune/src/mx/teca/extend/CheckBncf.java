@@ -3,6 +3,10 @@
  */
 package mx.teca.extend;
 
+import it.sbn.iccu.metaag1.Img;
+import it.sbn.iccu.metaag1.Img.Altimg;
+import it.sbn.iccu.metaag1.Metadigit;
+
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
@@ -16,12 +20,10 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import mx.database.ConnectionPool;
-import mx.log4j.Logger;
-import mx.magEdit.mag.Altimg;
-import mx.magEdit.mag.Img;
-import mx.magEdit.mag.Mag;
 import mx.teca.archivi.arsbni.view.ViewListaIdrImg;
 import mx.teca.interfacce.IExtendCheck;
+
+import org.apache.log4j.Logger;
 
 /**
  * Questa classe viene utilizzata per implementare delle personalizzazioni per la BNCF
@@ -35,7 +37,7 @@ public class CheckBncf implements IExtendCheck
 	/**
 	 * Questa variabile viene utilizzata per loggare l'applicazione
 	 */
-	private static Logger log = new Logger(CheckBncf.class, "mx.teca.extend");
+	private static Logger log = Logger.getLogger(CheckBncf.class);
 	
 	/**
 	 * Costruttore
@@ -45,13 +47,13 @@ public class CheckBncf implements IExtendCheck
 	}
 
 	/**
-	 * Questo metodo viene utilizzato per verificare l'integrità del file Mag
+	 * Questo metodo viene utilizzato per verificare l'integritï¿½ del file Mag
 	 * 
 	 * @param mag Questa variabile viene utilizzara per gestire il mag da verificare
 	 * 
 	 * @see mx.teca.interfacce.IExtendCheck#checkMag(mx.magEdit.mag.Mag)
 	 */
-	public void checkMag(Mag mag)
+	public void checkMag(Metadigit mag)
 	{
 		Img img = null;
 		Altimg altImg = null;
@@ -64,23 +66,23 @@ public class CheckBncf implements IExtendCheck
 					img = (Img)mag.getImg().get(x);
 					if (img.getUsage()!=null && img.getUsage().size()>0)
 					{
-						// Il campo Usage è valorizzato controllo se il file ha estensione imgf e in questo caso lo valorizzo a 5
+						// Il campo Usage ï¿½ valorizzato controllo se il file ha estensione imgf e in questo caso lo valorizzo a 5
 						if (img.getFile().getHref().toLowerCase().endsWith(".imgf"))
 							((Img)mag.getImg().get(x)).getUsage().set(0,"5");
 					}
 					else
 					{
-						// Il campo Usage non è valorizzato cerco di ricavare dati sufficenti per la valorizzazione
+						// Il campo Usage non ï¿½ valorizzato cerco di ricavare dati sufficenti per la valorizzazione
 						if (img.getFile().getHref().toLowerCase().endsWith(".imgf"))
-							((Img)mag.getImg().get(x)).addUsage("5");
+							((Img)mag.getImg().get(x)).getUsage().add("5");
 						else if (img.getFile().getHref().toLowerCase().endsWith(".tif"))
-							((Img)mag.getImg().get(x)).addUsage("1");
+							((Img)mag.getImg().get(x)).getUsage().add("1");
 						else if (img.getFile().getHref().toLowerCase().endsWith(".jpg") && 
-								((img.getPpi()>0 && img.getPpi()>150) ||
-								 (img.getDpi()>0 && img.getDpi()>150)) )
-							((Img)mag.getImg().get(x)).addUsage("2");
+								((img.getPpi() != null && (img.getPpi().intValue()>0 && img.getPpi().intValue()>150)) ||
+								 (img.getDpi() != null && (img.getDpi().intValue()>0 && img.getDpi().intValue()>150))) )
+							((Img)mag.getImg().get(x)).getUsage().add("2");
 						else
-							((Img)mag.getImg().get(x)).addUsage("3");
+							((Img)mag.getImg().get(x)).getUsage().add("3");
 					}
 					if (((Img)mag.getImg().get(x)).getAltimg() != null && ((Img)mag.getImg().get(x)).getAltimg().size()>0)
 					{
@@ -89,23 +91,23 @@ public class CheckBncf implements IExtendCheck
 							altImg = ((Altimg)((Img)mag.getImg().get(x)).getAltimg().get(y));
 							if (altImg.getUsage()!=null && altImg.getUsage().size()>0)
 							{
-								// Il campo Usage è valorizzato controllo se il file ha estensione imgf e in questo caso lo valorizzo a 5
+								// Il campo Usage ï¿½ valorizzato controllo se il file ha estensione imgf e in questo caso lo valorizzo a 5
 								if (altImg.getFile().getHref().toLowerCase().endsWith(".imgf"))
 									((Altimg)((Img)mag.getImg().get(x)).getAltimg().get(y)).getUsage().set(0,"5");
 							}
 							else
 							{
-								// Il campo Usage non è valorizzato cerco di ricavare dati sufficenti per la valorizzazione
+								// Il campo Usage non ï¿½ valorizzato cerco di ricavare dati sufficenti per la valorizzazione
 								if (altImg.getFile().getHref().toLowerCase().endsWith(".imgf"))
-									((Altimg)((Img)mag.getImg().get(x)).getAltimg().get(y)).addUsage("5");
+									((Altimg)((Img)mag.getImg().get(x)).getAltimg().get(y)).getUsage().add("5");
 								else if (altImg.getFile().getHref().toLowerCase().endsWith(".tif"))
-									((Altimg)((Img)mag.getImg().get(x)).getAltimg().get(y)).addUsage("1");
+									((Altimg)((Img)mag.getImg().get(x)).getAltimg().get(y)).getUsage().add("1");
 								else if (altImg.getFile().getHref().toLowerCase().endsWith(".jpg") && 
-										((altImg.getPpi()>0 && altImg.getPpi()>150) ||
-										 (altImg.getDpi()>0 && altImg.getDpi()>150)) )
-									((Altimg)((Img)mag.getImg().get(x)).getAltimg().get(y)).addUsage("2");
+										((altImg.getPpi() != null && (altImg.getPpi().intValue()>0 && altImg.getPpi().intValue()>150)) ||
+										 (altImg.getDpi() != null && (altImg.getDpi().intValue()>0 && altImg.getDpi().intValue()>150))) )
+									((Altimg)((Img)mag.getImg().get(x)).getAltimg().get(y)).getUsage().add("2");
 								else
-									((Altimg)((Img)mag.getImg().get(x)).getAltimg().get(y)).addUsage("3");
+									((Altimg)((Img)mag.getImg().get(x)).getAltimg().get(y)).getUsage().add("3");
 							}
 						}
 					}
@@ -117,7 +119,7 @@ public class CheckBncf implements IExtendCheck
 	/**
 	 * Questo metodo viene utilizzato per estendere laverifica sui codici Usage
 	 * 
-	 * @param usage Questa variabile viene utilizzata per indicare il livello di usabilità del materiale
+	 * @param usage Questa variabile viene utilizzata per indicare il livello di usabilitï¿½ del materiale
 	 * @return indica il risultato della verifica
 	 * @see mx.teca.interfacce.IExtendCheck#checkUsage(java.lang.String)
 	 */
@@ -224,7 +226,7 @@ public class CheckBncf implements IExtendCheck
 	}
 
 	/**
-	 * Questo metodo viene utilizzato per testare la fruibilità del materiale
+	 * Questo metodo viene utilizzato per testare la fruibilitï¿½ del materiale
 	 * 
 	 * @param request Questa variabile viene utilizzata per gestire le richieste del client
 	 * @param risIdr Identificativo della risorsa Digitale

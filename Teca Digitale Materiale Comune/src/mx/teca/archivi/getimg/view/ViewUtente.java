@@ -42,7 +42,7 @@ public class ViewUtente extends QueryNavigator
    * @param conn Poll di connessioni con il database
    * @param map
    */
-  public ViewUtente(ConnectionPool conn, Map map)
+  public ViewUtente(ConnectionPool conn, Map<Object, Object> map)
   {
     super(conn, map);
   }

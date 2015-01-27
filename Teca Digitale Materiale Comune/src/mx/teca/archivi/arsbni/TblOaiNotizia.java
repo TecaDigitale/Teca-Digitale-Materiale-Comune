@@ -32,7 +32,7 @@ public class TblOaiNotizia extends TableNavigator
 	 *  
 	 * @param conn
 	 */
-	public TblOaiNotizia(ConnectionPool conn, Map map)
+	public TblOaiNotizia(ConnectionPool conn, Map<Object, Object> map)
 	{
 		super(conn, map);
 	}

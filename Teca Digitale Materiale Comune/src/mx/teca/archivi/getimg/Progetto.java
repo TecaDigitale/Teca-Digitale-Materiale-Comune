@@ -44,7 +44,7 @@ public class Progetto extends TableNavigator
    * update, delete)
    * @param map Lista parametri da caricare
    */
-  public Progetto(ConnectionPool conn, MsSqlPool msp, Map map)
+  public Progetto(ConnectionPool conn, MsSqlPool msp, Map<Object, Object> map)
   {
     super(conn, msp, map);
   }
@@ -55,7 +55,7 @@ public class Progetto extends TableNavigator
    * @param conn Poll di connessioni con il database
    * @param map Lista parametri da caricare
    */
-  public Progetto(ConnectionPool conn, Map map)
+  public Progetto(ConnectionPool conn, Map<Object, Object> map)
   {
     super(conn, map);
   }

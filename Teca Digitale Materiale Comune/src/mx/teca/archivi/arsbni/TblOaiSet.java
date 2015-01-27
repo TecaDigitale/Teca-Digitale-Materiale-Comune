@@ -33,7 +33,7 @@ public class TblOaiSet extends TableNavigator
 	 *  
 	 * @param conn
 	 */
-	public TblOaiSet(ConnectionPool conn, Map map)
+	public TblOaiSet(ConnectionPool conn, Map<Object, Object> map)
 	{
 		super(conn, map);
 	}

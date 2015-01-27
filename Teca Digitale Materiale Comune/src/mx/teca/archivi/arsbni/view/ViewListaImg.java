@@ -44,9 +44,20 @@ public class ViewListaImg extends Query
 		this.addCampi("relrisidr", "TBLRELRIS", "RELRISIDRARRIVO");
 		this.addCampi("RelRisIdrPartenza", "TBLRELRIS", "RELRISIDRPARTENZA");
 		this.addCampi("tipoRelId", "TBLRELRIS", "TIPORELID");
+		this.addCampi("idTblImg", "TBLIMG", "ID_TBLIMG");
 		this.addCampi("imgPathName", "TBLIMG", "IMGPATHNAME");
 		this.addCampi("imgLength", "TBLIMG", "IMGLENGTH");
 		this.addCampi("imgWidth", "TBLIMG", "IMGWIDTH");
+		this.addCampi("imgLengthConv", "TBLIMG", "IMGLENGTH_CONV");
+		this.addCampi("imgWidthConv", "TBLIMG", "IMGWIDTH_CONV");
+	    this.addCampi("hostId", "TLKPHOST", "HOSTID",true);
+	    this.addCampi("hostProt","TLKPHOST","HOSTPROT");
+	    this.addCampi("hostIp","TLKPHOST","HOSTIP");
+	    this.addCampi("hostPorta","TLKPHOST","HOSTPORTA");
+	    this.addCampi("hostServerPath", "TLKPHOST", "HOSTSERVERPATH");
+	    this.addCampi("hostPathDisco", "TLKPHOST", "HOSTPATHDISCO");
+	    this.addCampi("hostLogin","TLKPHOST","HOSTLOGIN");
+	    this.addCampi("hostPsw","TLKPHOST","HOSTPSW");
 	}
 
 	/**
@@ -58,7 +69,8 @@ public class ViewListaImg extends Query
 		this.addFrom("TBLRELRIS,");
 		this.addFrom("TBLRIS,");
 		this.addFrom("TBLRISIMG,");
-		this.addFrom("TBLIMG");
+		this.addFrom("TBLIMG,");
+		this.addFrom("TLKPHOST");
 	}
 
 	/**
@@ -69,7 +81,8 @@ public class ViewListaImg extends Query
 	{
 		this.addWhere("TBLRELRIS.RELRISIDRPARTENZA=TBLRIS.RISIDR AND ");
 		this.addWhere("TBLRIS.RISIDR=TBLRISIMG.RISIDR AND ");
-		this.addWhere("TBLRISIMG.ID_TBLIMG = TBLIMG.ID_TBLIMG"); 
+		this.addWhere("TBLRISIMG.ID_TBLIMG = TBLIMG.ID_TBLIMG AND "); 
+		this.addWhere("TBLIMG.HOSTID = TLKPHOST.HOSTID"); 
 	}
 
 }

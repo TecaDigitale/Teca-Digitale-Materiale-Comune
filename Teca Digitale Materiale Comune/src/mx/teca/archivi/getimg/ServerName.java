@@ -30,7 +30,7 @@ public class ServerName extends Table
    *          tabella (insert, update, delete)
    * @param map Lista parametri da caricare
    */
-  public ServerName(ConnectionPool conn, MsSqlPool msp, Map map)
+  public ServerName(ConnectionPool conn, MsSqlPool msp, Map<Object, Object> map)
   {
     super(conn, msp, map);
   }

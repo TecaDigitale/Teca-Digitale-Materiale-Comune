@@ -8,7 +8,7 @@ import java.sql.ResultSet;
 import mx.database.ConnectionPool;
 import mx.database.MsSqlPool;
 import mx.database.table.Table;
-import mx.utility.ConvertText;
+import mx.randalf.charSpec.CharSpec;
 
 /**
  * @author MRandazzo
@@ -67,7 +67,7 @@ public class TblLegNot extends Table
 	}
 
 	/**
-	 * Questo metodo viene utilizzato per verificare la validità del contenuto di alcuni campi
+	 * Questo metodo viene utilizzato per verificare la validitï¿½ del contenuto di alcuni campi
 	 *
 	 */
 	protected void preUpdate()
@@ -83,9 +83,9 @@ public class TblLegNot extends Table
 			this.setCampoValue("legNotInv", "");
 		}
 		if (this.getCampoValue("tmpAutore") != null)
-			this.setCampoValue("tmpChiaveAutore", ConvertText.conveVar(this.get("tmpAutore")));
+			this.setCampoValue("tmpChiaveAutore", CharSpec.conveVar(this.get("tmpAutore")));
 		if (this.getCampoValue("tmpTitolo") != null)
-			this.setCampoValue("tmpChiaveTitolo", ConvertText.conveVar(this.get("tmpTitolo")));
+			this.setCampoValue("tmpChiaveTitolo", CharSpec.conveVar(this.get("tmpTitolo")));
 
 		autore = this.getCampoValue("tmpAutore");
 		if (this.getCampoValue("tmpAutore") != null && this.get("tmpAutore").length()>80)

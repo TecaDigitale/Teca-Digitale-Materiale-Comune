@@ -32,8 +32,8 @@ public class ViewImages extends Query
 		this.setFrom("TBLRIS, " +
 				"TBLRISIMG, " +
 				"TLKPHOST, " +
-				"TLKPMIME, "+
 				"TBLIMG " +
+				conn.genJoinLeft("TLKPMIME", "TBLIMG.MIMEID = TLKPMIME.MIMEID")+" "+
 				conn.genJoinLeft("TBLOCR", "TBLOCR.ID_TBLIMG=TBLIMG.ID_TBLIMG")+" "+
 				conn.genJoinLeft("OCRGROUP", "OCRGROUP.ID_OCRGROUP=TBLOCR.ID_OCRGROUP")+" "+
 				conn.genJoinLeft("TLKPHOST AS TLKPHOSTOCR", "TLKPHOSTOCR.HOSTID=TBLOCR.HOSTID"));
@@ -47,7 +47,7 @@ public class ViewImages extends Query
 		this.setWhere("TBLRIS.RISIDR = TBLRISIMG.RISIDR");
 		this.addWhere("AND TBLRISIMG.ID_TBLIMG = TBLIMG.ID_TBLIMG");
     this.addWhere("AND TBLIMG.HOSTID = TLKPHOST.HOSTID");
-    this.addWhere("AND TBLIMG.MIMEID = TLKPMIME.MIMEID");
+//    this.addWhere("AND TBLIMG.MIMEID = TLKPMIME.MIMEID");
 	}
 
 	/**

@@ -22,7 +22,7 @@ public class ViewCaratImg extends Query
 	 * @param conn
 	 * @param map
 	 */
-	public ViewCaratImg(ConnectionPool conn, Map map)
+	public ViewCaratImg(ConnectionPool conn, Map<Object, Object> map)
 	{
 		super(conn, map);
 	}

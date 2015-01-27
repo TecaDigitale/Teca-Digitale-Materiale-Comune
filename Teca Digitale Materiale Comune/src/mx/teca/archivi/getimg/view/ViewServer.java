@@ -39,7 +39,7 @@ public class ViewServer extends QueryNavigator
    * Costruttore con la gestione del pool di connessioni
    * @param conn Poll di connessioni con il database
    */
-  public ViewServer(ConnectionPool conn, Map map)
+  public ViewServer(ConnectionPool conn, Map<Object, Object> map)
   {
     super(conn, map);
   }

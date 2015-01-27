@@ -19,10 +19,9 @@ import mx.database.navigator.TableNavigator;
 public class AsseSpazioDisco extends TableNavigator
 {
 
-  public AsseSpazioDisco(ConnectionPool conn, Map map)
+  public AsseSpazioDisco(ConnectionPool conn, Map<Object, Object> map)
   {
     super(conn, map);
-    // TODO Auto-generated constructor stub
   }
 
   /**

@@ -36,7 +36,7 @@ public class ViewAut_Serv extends QueryNavigator
    * @param conn
    * @param map
    */
-  public ViewAut_Serv(ConnectionPool conn, Map map)
+  public ViewAut_Serv(ConnectionPool conn, Map<Object, Object> map)
   {
     super(conn, map);
   }

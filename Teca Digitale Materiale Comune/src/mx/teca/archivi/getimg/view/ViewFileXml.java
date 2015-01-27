@@ -23,7 +23,7 @@ public class ViewFileXml extends QueryNavigator
    * @param conn
    *          Pool di connessioni
    */
-  public ViewFileXml(ConnectionPool conn, Map map)
+  public ViewFileXml(ConnectionPool conn, Map<Object, Object> map)
   {
     super(conn, map);
   }

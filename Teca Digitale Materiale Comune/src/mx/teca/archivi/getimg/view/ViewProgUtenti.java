@@ -16,7 +16,7 @@ import mx.database.table.Query;
 public class ViewProgUtenti extends Query
 {
 
-  public ViewProgUtenti(ConnectionPool conn, Map map)
+  public ViewProgUtenti(ConnectionPool conn, Map<Object, Object> map)
   {
     super(conn, map);
     // TODO Auto-generated constructor stub

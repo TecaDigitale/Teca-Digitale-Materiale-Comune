@@ -45,7 +45,7 @@ public class LogProcessi extends TableNavigator
    * Costruttore con la gestione del pool di connessioni
    * @param conn Poll di connessioni con il database
    */
-  public LogProcessi(ConnectionPool conn, Map map)
+  public LogProcessi(ConnectionPool conn, Map<Object, Object> map)
   {
     super(conn, map);
   }

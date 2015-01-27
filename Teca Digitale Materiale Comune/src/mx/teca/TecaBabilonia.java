@@ -11,7 +11,7 @@ import java.util.Enumeration;
 import java.util.Hashtable;
 import java.util.Properties;
 
-import mx.log4j.Logger;
+import org.apache.log4j.Logger;
 
 /**
  * Questa classe viene utilizzata per la gestione del multi linguaggio del programma
@@ -30,7 +30,7 @@ public class TecaBabilonia
 	/**
 	 * Questa variavile viene utilizzata per gestire la lista dei file caricati
 	 */
-	private static Hashtable babilonia = null;
+	private static Hashtable<String, Babilonia> babilonia = null;
 
 	/**
 	 * Questo metodo viene tilizzato per reprire le informazioni relativo al testo intressata per la lingua italiana
@@ -55,7 +55,7 @@ public class TecaBabilonia
 		Babilonia babilonia = null;
 
 		if (TecaBabilonia.babilonia == null)
-			TecaBabilonia.babilonia = new Hashtable();
+			TecaBabilonia.babilonia = new Hashtable<String, Babilonia>();
 		
 		if (TecaBabilonia.babilonia.get(language)!= null)
 			babilonia = (Babilonia) TecaBabilonia.babilonia.get(language);
@@ -74,7 +74,7 @@ class Babilonia
 	/**
 	 * Questa variabile viene utilizzata per loggare l'applicazione
 	 */
-	private static Logger log = new Logger(Babilonia.class, "mx.teca");
+	private static Logger log = Logger.getLogger(Babilonia.class);
 
 	/**
 	 * Questa variabile viene utilizzata per indicare la lingua relativa al file preso in oggetto
@@ -84,7 +84,7 @@ class Babilonia
 	/**
 	 * Questa variabile viene utilizzata per indicare la lista dei testi disponibili
 	 */
-	private Hashtable htTesto = null;
+	private Hashtable<String, Object> htTesto = null;
 
 	public Babilonia(String language)
 	{
@@ -104,8 +104,8 @@ class Babilonia
 				prop = new Properties();
 				fis = new FileInputStream(f);
 				prop.load(fis);
-				htTesto = new Hashtable();
-				for (Enumeration e = prop.keys(); e.hasMoreElements(); )
+				htTesto = new Hashtable<String, Object>();
+				for (Enumeration<Object> e = prop.keys(); e.hasMoreElements(); )
 				{
 					key = (String)e.nextElement();
 					log.debug("Key: "+key+" -> "+prop.get(key));

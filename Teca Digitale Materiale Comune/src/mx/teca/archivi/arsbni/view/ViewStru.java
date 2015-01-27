@@ -38,7 +38,7 @@ public class ViewStru extends Query
 	 * @param conn
 	 * @param map
 	 */
-	public ViewStru(ConnectionPool conn, Map map)
+	public ViewStru(ConnectionPool conn, Map<Object, Object> map)
 	{
 		super(conn, map);
 	}

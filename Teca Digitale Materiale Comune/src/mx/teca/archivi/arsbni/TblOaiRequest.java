@@ -32,7 +32,7 @@ public class TblOaiRequest extends TableNavigator
 	 *  
 	 * @param conn
 	 */
-	public TblOaiRequest(ConnectionPool conn, Map map)
+	public TblOaiRequest(ConnectionPool conn, Map<Object, Object> map)
 	{
 		super(conn, map);
 	}

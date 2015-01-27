@@ -3,15 +3,16 @@
  */
 package mx.teca.interfacce;
 
+import it.sbn.iccu.metaag1.Metadigit;
+
 import javax.servlet.ServletContext;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import mx.database.ConnectionPool;
-import mx.magEdit.mag.Mag;
 
 /**
- * Questa interfaccia verrà utilizzata per persolizzare le installazioni implementando dei controlli aggiuntivi
+ * Questa interfaccia verrï¿½ utilizzata per persolizzare le installazioni implementando dei controlli aggiuntivi
  * 
  * @author Massimiliano Randazzo
  *
@@ -24,7 +25,7 @@ public interface IExtendCheck
 	 * 
 	 * @param mag File Mag da verificare
 	 */
-	public abstract void checkMag(Mag mag);
+	public abstract void checkMag(Metadigit mag);
 
 	/**
 	 * Questo metodo viene utilizzato per esterndere la verifica sugli usage
@@ -45,7 +46,7 @@ public interface IExtendCheck
 	public abstract boolean checkViewer(HttpServletResponse response, HttpServletRequest request, ConnectionPool pool);
 
 	/**
-	 * Questo metodo viene utilizzato per testare la fruibilità del materiale
+	 * Questo metodo viene utilizzato per testare la fruibilitï¿½ del materiale
 	 * 
 	 * @param request Questa variabile viene utilizzata per gestire le richieste del client
 	 * @param risIdr Identificativo della risorsa Digitale

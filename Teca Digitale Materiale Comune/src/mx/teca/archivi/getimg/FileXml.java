@@ -21,12 +21,12 @@ public class FileXml extends Table
 
 	private boolean insAvanzamento = true;
 
-	public FileXml(ConnectionPool conn, MsSqlPool msp, Map map)
+	public FileXml(ConnectionPool conn, MsSqlPool msp, Map<Object, Object> map)
 	{
 		super(conn, msp, map);
 	}
 
-	public FileXml(ConnectionPool conn, Map map)
+	public FileXml(ConnectionPool conn, Map<Object, Object> map)
   {
     super(conn, map);
   }

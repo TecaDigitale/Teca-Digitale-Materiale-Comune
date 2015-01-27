@@ -6,11 +6,12 @@ package mx.teca.archivi.arsbni;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
+import org.apache.log4j.Logger;
+
 import mx.database.ConnectionPool;
 import mx.database.MsSqlException;
 import mx.database.MsSqlPool;
 import mx.database.table.Table;
-import mx.log4j.Logger;
 
 /**
  * @author MRandazzo
@@ -22,7 +23,7 @@ public class TblAudio extends Table
 	/**
 	 * Questa variabile viene utilizzata per loggare l'applicativi
 	 */
-	private static Logger log = new Logger(TblAudio.class, "teca.archivi.arsbni");
+	private static Logger log = Logger.getLogger(TblAudio.class);
 
 	public TblAudio(MsSqlPool msp)
 	{

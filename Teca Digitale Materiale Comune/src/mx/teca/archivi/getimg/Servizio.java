@@ -29,7 +29,7 @@ public class Servizio extends Table
    *          tabella (insert, update, delete)
    * @param map Lista parametri da caricare
    */
-  public Servizio(ConnectionPool conn, MsSqlPool msp, Map map)
+  public Servizio(ConnectionPool conn, MsSqlPool msp, Map<Object, Object> map)
   {
     super(conn, msp, map);
   }
@@ -39,7 +39,7 @@ public class Servizio extends Table
    * @param conn Pool di connessioni con il Database
    * @param map Lista parametri da caricare
    */
-  public Servizio(ConnectionPool conn, Map map)
+  public Servizio(ConnectionPool conn, Map<Object, Object> map)
   {
     super(conn, map);
   }

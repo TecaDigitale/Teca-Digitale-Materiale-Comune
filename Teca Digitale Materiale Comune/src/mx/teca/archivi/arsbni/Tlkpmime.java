@@ -23,7 +23,7 @@ public class Tlkpmime extends Table
 	 * @param msp
 	 * @param map
 	 */
-	public Tlkpmime(ConnectionPool conn, MsSqlPool msp, Map map)
+	public Tlkpmime(ConnectionPool conn, MsSqlPool msp, Map<Object, Object> map)
 	{
 		super(conn, msp, map);
 	}
@@ -32,7 +32,7 @@ public class Tlkpmime extends Table
 	 * @param conn
 	 * @param map
 	 */
-	public Tlkpmime(ConnectionPool conn, Map map)
+	public Tlkpmime(ConnectionPool conn, Map<Object, Object> map)
 	{
 		super(conn, map);
 	}
