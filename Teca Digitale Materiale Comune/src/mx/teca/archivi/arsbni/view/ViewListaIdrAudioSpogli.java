@@ -71,7 +71,7 @@ public class ViewListaIdrAudioSpogli extends Query
 	}
 
 	/**
-	 * Questo metodo viene utilizzato per estendere le funzionalit‡ si partenza della select
+	 * Questo metodo viene utilizzato per estendere le funzionalit√† si partenza della select
 	 * 
 	 * @see mx.database.table.DataSet#startSelect()
 	 */
